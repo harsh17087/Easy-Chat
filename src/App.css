@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.menubar {
+  width: 25%;
+  min-width: 15rem;
+}
+
+.content {
+  width: 75%;
+  padding: 1rem;
+  overflow: auto;
+}
