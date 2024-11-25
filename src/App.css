@@ -13,3 +13,19 @@
   padding: 1rem;
   overflow: auto;
 }
+
+/* Media query for mobile resolutions */
+@media (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .menubar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+}

@@ -4,20 +4,20 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2',
+      main: '#1976d2', // Primary color
     },
     secondary: {
-      main: '#dc004e',
+      main: '#dc004e', // Secondary color
     },
     background: {
-      default: '#f5f5f5',
+      default: '#f5f5f5', // Default background color
     },
   },
   colorSchemes: {
-    dark: true,
+    dark: true, // Enable dark color scheme
   },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif',
+    fontFamily: 'Roboto, Arial, sans-serif', // Font family for typography
   },
   // Add other customizations here
 });

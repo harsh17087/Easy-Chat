@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
 import BusinessKnowledge from './features/BusinessKnowledge';
 
+// Lazy load the components
 const Dashboard = lazy(() => import('./features/Dashboard'));
 const Chat = lazy(() => import('./features/Chat'));
 const Channels = lazy(() => import('./features/Channels'));
@@ -14,12 +15,53 @@ const AppRouter: React.FC = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path='/' element={<App />}>
-            <Route index element={<Dashboard />} />
-            <Route path='dashboard' element={<Dashboard />} />
-            <Route path='chat' element={<Chat />} />
-            <Route path='channels' element={<Channels />} />
+            {/* Default route */}
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading Dashboard...</div>}>
+                  <Dashboard />
+                </Suspense>
+              }
+            />
+            {/* Dashboard route */}
+            <Route
+              path='dashboard'
+              element={
+                <Suspense fallback={<div>Loading Dashboard...</div>}>
+                  <Dashboard />
+                </Suspense>
+              }
+            />
+            {/* Chat route */}
+            <Route
+              path='chat'
+              element={
+                <Suspense fallback={<div>Loading Chat...</div>}>
+                  <Chat />
+                </Suspense>
+              }
+            />
+            {/* Channels route */}
+            <Route
+              path='channels'
+              element={
+                <Suspense fallback={<div>Loading Channels...</div>}>
+                  <Channels />
+                </Suspense>
+              }
+            />
+            {/* Business Knowledge route */}
             <Route path='businessknowledge' element={<BusinessKnowledge />} />
-            <Route path='testyourbot' element={<TestYourBot />} />
+            {/* Test Your Bot route */}
+            <Route
+              path='testyourbot'
+              element={
+                <Suspense fallback={<div>Loading Test Your Bot...</div>}>
+                  <TestYourBot />
+                </Suspense>
+              }
+            />
           </Route>
         </Routes>
       </Suspense>
