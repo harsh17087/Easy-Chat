@@ -1,0 +1,32 @@
+.chat-container {
+  display: flex;
+  height: 100%;
+}
+.chat-sidebar {
+  flex: 1;
+  border-right: 0.0625rem solid #ddd;
+  width: 75vw;
+}
+
+.chat-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media query for mobile resolutions */
+@media (max-width: 37.5rem) {
+  .chat-container {
+    flex-direction: column;
+    margin-top: 3.7rem;
+  }
+  .chat-sidebar {
+    flex: 1;
+    border-right: 0.0625rem solid #ddd;
+    width: 99vw;
+  }
+
+  .chat-content {
+    display: none;
+  }
+}
