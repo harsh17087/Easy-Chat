@@ -1,7 +1,15 @@
 import { Box } from '@mui/material';
 import './ChatContent.css';
+import ChatHistory from './ChatNow';
+import SendMessageContainer from './ChatNow/SendMessageContainer';
+
 const ChatContainer = () => {
-  return <Box className='chat-container'>{/* Add your chat messages or other content here */}</Box>;
+  return (
+    <Box className='chat-conversation'>
+      <ChatHistory />
+      <SendMessageContainer />
+    </Box>
+  );
 };
 
 export default ChatContainer;

@@ -6,6 +6,7 @@ import Human from './Human';
 import MailIcon from '@mui/icons-material/Mail';
 import AndroidIcon from '@mui/icons-material/Android';
 import PersonIcon from '@mui/icons-material/Person';
+import './Tabs.css';
 
 const Tabs = () => {
   const [value, setValue] = useState(0);
@@ -15,8 +16,8 @@ const Tabs = () => {
   };
 
   return (
-    <div style={{ marginTop: '1rem' }}>
-      <div style={{ position: 'sticky', top: 0, zIndex: 1 }}>
+    <div className='tabs-container'>
+      <div className='tabs-header'>
         <MuiTabs
           value={value}
           onChange={handleChange}
@@ -26,7 +27,7 @@ const Tabs = () => {
           selectionFollowsFocus
           sx={{
             '& .MuiTab-root': {
-              minHeight: 'auto', // Override min-height
+              minHeight: 'auto',
               '&:focus, &:focus-visible': {
                 outline: 'none',
               },
@@ -38,22 +39,7 @@ const Tabs = () => {
           <Tab icon={<PersonIcon />} iconPosition='start' label='Human' />
         </MuiTabs>
       </div>
-      <Box
-        sx={{
-          maxHeight: '72vh',
-          overflowY: 'auto',
-          '&::-webkit-scrollbar': {
-            width: '4px',
-          },
-          '&::-webkit-scrollbar-thumb': {
-            backgroundColor: '#888',
-            borderRadius: '4px',
-          },
-          '&::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#555',
-          },
-        }}
-      >
+      <Box className='tabs-content'>
         {value === 0 && <AllMessages />}
         {value === 1 && <Bots />}
         {value === 2 && <Human />}

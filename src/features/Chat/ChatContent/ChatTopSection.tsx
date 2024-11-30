@@ -52,13 +52,32 @@ const ChatTopSection = () => {
             </Box>
           </Box>
           <Box className='chat-top-right'>
-            <IconButton>
+            <IconButton
+              sx={{
+                '&:focus, &:focus-visible': {
+                  outline: 'none',
+                },
+              }}
+            >
               <CallIcon />
             </IconButton>
-            <IconButton>
+            <IconButton
+              sx={{
+                '&:focus, &:focus-visible': {
+                  outline: 'none',
+                },
+              }}
+            >
               <VideocamIcon />
             </IconButton>
-            <IconButton onClick={handleClick}>
+            <IconButton
+              sx={{
+                '&:focus, &:focus-visible': {
+                  outline: 'none',
+                },
+              }}
+              onClick={handleClick}
+            >
               <MoreVertIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>

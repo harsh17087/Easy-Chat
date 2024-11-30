@@ -160,3 +160,39 @@ export const names = [
   'Virginia Andrews',
   'Kelly Snyder',
 ];
+export const chatHistory = [
+  {
+    id: 1,
+    sender: 'me',
+    message: 'Hello!',
+    timestamp: '10:00 AM',
+  },
+  {
+    id: 2,
+    sender: 'other',
+    message: 'Hi! How can I help you today?',
+    timestamp: '10:01 AM',
+  },
+  {
+    id: 3,
+    sender: 'me',
+    message: 'I need assistance with my order.',
+    timestamp: '10:02 AM',
+  },
+  {
+    id: 4,
+    sender: 'other',
+    message: 'Sure, I can help with that. Can you provide your order number?',
+    timestamp: '10:03 AM',
+  },
+  // Add more messages as needed
+];
+
+for (let i = 5; i <= 54; i++) {
+  chatHistory.push({
+    id: i,
+    sender: i % 2 === 0 ? 'other' : 'me',
+    message: `This is message number ${i}`,
+    timestamp: new Date().toLocaleTimeString(),
+  });
+}
