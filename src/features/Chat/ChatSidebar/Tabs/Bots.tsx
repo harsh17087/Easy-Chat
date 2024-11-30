@@ -1,7 +1,10 @@
+import ChatMessagesList from '../../../../components/ChatMessages/ChatMessageList';
+import { chatMessagesBot } from '../../../../constants/mocks';
+
 const Bots = () => {
   return (
     <div>
-      <h1>Bots</h1>
+      <ChatMessagesList chatMessages={chatMessagesBot} />
     </div>
   );
 };

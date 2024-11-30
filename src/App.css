@@ -4,7 +4,7 @@
 }
 .content {
   padding: 0.2rem;
-  overflow: none;
+  overflow: auto;
   height: 100%;
 }
 
