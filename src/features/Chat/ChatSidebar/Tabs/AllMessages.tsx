@@ -1,9 +1,10 @@
 import ChatMessagesList from '../../../../components/ChatMessages/ChatMessageList';
+import { chatMessagesAll } from '../../../../constants/mocks';
 
 const AllMessages = () => {
   return (
     <div>
-      <ChatMessagesList />
+      <ChatMessagesList chatMessages={chatMessagesAll} />
     </div>
   );
 };

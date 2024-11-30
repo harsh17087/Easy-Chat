@@ -1,4 +1,11 @@
+import ChatMessagesList from '../../../../components/ChatMessages/ChatMessageList';
+import { chatMessagesHuman } from '../../../../constants/mocks';
+
 const Human = () => {
-  return <div>Human</div>;
+  return (
+    <div>
+      <ChatMessagesList chatMessages={chatMessagesHuman} />
+    </div>
+  );
 };
 export default Human;
