@@ -1,0 +1,39 @@
+.chat-content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 1rem 0.5rem;
+  width: 100%;
+}
+
+.chat-top-section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-top-left {
+  display: flex;
+  align-items: center;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.chat-user-info {
+  display: flex;
+  flex-direction: column;
+}
+.chat-status {
+  color: #888;
+}
+
+.chat-top-right {
+  display: flex;
+  align-items: center;
+}
