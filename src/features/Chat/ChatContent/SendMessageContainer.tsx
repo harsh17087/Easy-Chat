@@ -7,10 +7,24 @@ const SendMessageContainer = () => {
   return (
     <Box className='send-message-container'>
       <InputBase placeholder='Type a message' className='send-message-input' />
-      <IconButton className='send-message-button'>
+      <IconButton
+        sx={{
+          '&:focus, &:focus-visible': {
+            outline: 'none',
+          },
+        }}
+        className='send-message-button'
+      >
         <SendIcon />
       </IconButton>
-      <IconButton className='send-message-button'>
+      <IconButton
+        sx={{
+          '&:focus, &:focus-visible': {
+            outline: 'none',
+          },
+        }}
+        className='send-message-button'
+      >
         <MicIcon />
       </IconButton>
     </Box>

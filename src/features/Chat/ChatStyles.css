@@ -17,6 +17,7 @@
   flex-direction: column;
   width: 70%;
   overflow: hidden;
+  height: 97%;
 }
 
 /* Media query for mobile resolutions */

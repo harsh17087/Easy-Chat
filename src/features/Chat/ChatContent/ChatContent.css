@@ -2,17 +2,14 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin: 0.5rem 0.5rem;
   width: 100%;
 }
 .chat-conversation {
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-right: 0.5rem;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 .chat-top-section {
   position: sticky;
@@ -21,6 +18,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0.1rem;
+  box-shadow: 0 2px 4px rgba(178, 179, 179, 0.1);
+  padding: 0.5rem;
 }
 .chat-top-left {
   display: flex;
@@ -29,8 +29,8 @@
 }
 
 .chat-avatar {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem; /* 40px to rem */
+  height: 2.5rem; /* 40px to rem */
   margin-right: 0.5rem;
 }
 
@@ -48,12 +48,12 @@
   margin-right: 0.5rem;
 }
 .chat-history::-webkit-scrollbar {
-  width: 4px;
+  width: 0.25rem; /* 4px to rem */
 }
 
 .chat-history::-webkit-scrollbar-thumb {
   background-color: #888;
-  border-radius: 4px;
+  border-radius: 0.25rem; /* 4px to rem */
 }
 
 .chat-history::-webkit-scrollbar-thumb:hover {
