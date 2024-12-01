@@ -7,6 +7,13 @@ html {
 *::after {
   box-sizing: inherit;
 }
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -35,8 +42,8 @@ body {
   display: flex;
   place-items: center;
   /* min-width: 320px; */
-  min-height: 100vh;
-  overflow: hidden;
+  /* min-height: 100vh;
+  overflow: hidden; */
 }
 
 h1 {

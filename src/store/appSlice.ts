@@ -12,7 +12,7 @@ interface AppState {
 const initialState: AppState = {
   isLoading: false,
   error: null,
-  menuOpen: true,
+  menuOpen: false,
   mobileResolution: false,
   chatPreviewListOpen: false,
   liveChat: false,
