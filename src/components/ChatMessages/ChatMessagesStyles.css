@@ -30,6 +30,9 @@
   align-items: center;
 }
 
-.chat-icon {
-  color: #888;
+.chat-icon-bot {
+  color: #f07131;
+}
+.chat-icon-human {
+  color: #0086fa;
 }
