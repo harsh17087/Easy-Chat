@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import './ChatContent.css';
 import ChatHistory from './ChatNow';
-import SendMessageContainer from './ChatNow/SendMessageContainer';
+import SendMessageContainer from './SendMessageContainer';
 
 const ChatContainer = () => {
   return (

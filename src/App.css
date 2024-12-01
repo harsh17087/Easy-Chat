@@ -11,8 +11,8 @@
 .content {
   width: 100%;
   padding: 0.2rem;
-  overflow: auto;
   height: 100%;
+  overflow: hidden auto;
 }
 
 /* Media query for mobile resolutions */

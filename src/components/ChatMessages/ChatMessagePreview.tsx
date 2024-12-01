@@ -3,6 +3,8 @@ import { Avatar, Box, Typography, useTheme } from '@mui/material';
 import BotIcon from '@mui/icons-material/Android';
 import HumanIcon from '@mui/icons-material/Person';
 import './ChatMessagesStyles.css';
+import { useDispatch } from 'react-redux';
+import { liveChatOpen } from '../../store/appSlice';
 
 interface ChatMessagePreviewProps {
   image: string;
@@ -18,6 +20,10 @@ const ChatMessagePreview: React.FC<ChatMessagePreviewProps> = ({
   isBot,
 }) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(liveChatOpen(true));
+  };
 
   return (
     <Box
@@ -29,7 +35,7 @@ const ChatMessagePreview: React.FC<ChatMessagePreviewProps> = ({
       }}
     >
       <Avatar src={image} alt='Profile Picture' className='chat-avatar' />
-      <Box className='chat-details'>
+      <Box className='chat-details' onClick={handleClick}>
         <Typography variant='body1' className='chat-last-message'>
           {lastMessage}
         </Typography>
