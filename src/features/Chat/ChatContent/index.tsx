@@ -1,6 +1,6 @@
 import ChatContainer from './ChatContainer';
-import ChatTopSection from './ChatTopSection';
 import './ChatContent.css';
+import ChatTopSection from './ChatTopSection';
 
 const ChatContent = () => {
   return (

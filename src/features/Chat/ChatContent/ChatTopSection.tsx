@@ -5,9 +5,14 @@ import CallIcon from '@mui/icons-material/Call';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './ChatContent.css';
-import SearchBar from '../ChatSidebar/Searchbar';
+import SearchBar from '../../../components/SearchBar/Searchbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { liveChatOpen } from '../../../store/appSlice';
+import { RootState } from '../../../store/store';
 
 const ChatTopSection = () => {
+  const dispatch = useDispatch();
+  const app = useSelector((state: RootState) => state.app);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [isSearch, setIsSearch] = useState(false);
   const open = Boolean(anchorEl);
@@ -29,6 +34,10 @@ const ChatTopSection = () => {
     setIsSearch(false);
   };
 
+  const closeLiveChat = () => {
+    dispatch(liveChatOpen(false));
+  };
+
   return (
     <div className='chat-top-section'>
       {isSearch ? (
@@ -41,6 +50,11 @@ const ChatTopSection = () => {
       ) : (
         <>
           <Box className='chat-top-left'>
+            {app.mobileResolution && !isSearch && (
+              <IconButton onClick={closeLiveChat}>
+                <ArrowBackIcon />
+              </IconButton>
+            )}
             <Avatar src='https://via.placeholder.com/40' alt='User Image' className='chat-avatar' />
             <Box className='chat-user-info'>
               <Typography variant='h6' style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>

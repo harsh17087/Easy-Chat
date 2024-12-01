@@ -14,14 +14,18 @@ import Logo from './Logo';
 import NavigationItems from './NavigationItems';
 import './NavigationList.css'; // Import the CSS file
 import ToggleMode from './ToggleMode';
+import SearchBar from '../SearchBar/Searchbar';
+import { useTheme } from '@mui/material/styles';
 
 const drawerWidth = 240; // Width of the drawer
 
 const NavigationList = (): JSX.Element => {
   const dispatch = useDispatch();
+  const theme = useTheme();
   const isMobileMenuOpen = useSelector((state: RootState) => state.app.menuOpen); // Get mobile menu drawer open or close state from Redux
   const fromMobile = useSelector((state: RootState) => state.app.mobileResolution); // Get mobile resolution state from Redux
-
+  const chatMode = useSelector((state: RootState) => state.app.chatPreviewListOpen); // Get chat mode state from Redux
+  const liveChatMode = useSelector((state: RootState) => state.app.liveChat); // Get live chat mode state from Redux
   const handleDrawerToggle = useCallback(() => {
     dispatch(toggleMenu()); // Dispatch action to toggle menu
   }, [dispatch]);
@@ -32,7 +36,7 @@ const NavigationList = (): JSX.Element => {
       <div className='navigation-container'>
         <div className='navigation-header'>
           <Logo /> {/* Logo component */}
-          {!fromMobile && <ToggleMode />} {/* ToggleMode component if not mobile */}
+          {!fromMobile && <ToggleMode />} {/* ToggleMode light/dark mode if not mobile */}
         </div>
         <CompanyName /> {/* CompanyName component */}
         <NavigationItems fromMobile={fromMobile} handleDrawerToggle={handleDrawerToggle} />{' '}
@@ -48,9 +52,15 @@ const NavigationList = (): JSX.Element => {
       <AppBar
         position='fixed'
         className='app-bar'
-        sx={{ width: { sm: `calc(100% - ${drawerWidth}px)` }, ml: { sm: `${drawerWidth}px` } }} // AppBar styling
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+          backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#f5f5f5', // Custom background color
+          color: theme.palette.mode === 'dark' ? '#fff' : '#000000', // Custom text color
+          boxShadow: 'none', // Remove default box shadow
+        }}
       >
-        {fromMobile && (
+        {fromMobile && !liveChatMode && (
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <IconButton
               color='inherit'
@@ -61,6 +71,7 @@ const NavigationList = (): JSX.Element => {
             >
               <MenuIcon /> {/* Menu icon button */}
             </IconButton>
+            {chatMode && <SearchBar />} {/* SearchBar component when chat mode is opened */}
             <ToggleMode /> {/* ToggleMode component */}
           </Toolbar>
         )}

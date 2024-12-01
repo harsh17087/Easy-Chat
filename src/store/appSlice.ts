@@ -5,6 +5,8 @@ interface AppState {
   error: string | null;
   menuOpen: boolean;
   mobileResolution: boolean;
+  chatPreviewListOpen: boolean;
+  liveChat: boolean;
 }
 
 const initialState: AppState = {
@@ -12,6 +14,8 @@ const initialState: AppState = {
   error: null,
   menuOpen: true,
   mobileResolution: false,
+  chatPreviewListOpen: false,
+  liveChat: false,
 };
 
 /**
@@ -75,7 +79,7 @@ const appSlice = createSlice({
       state.menuOpen = action.payload;
     },
     /**
-     * Sets the mobile resolution state.
+     * Sets the menu bar drawer state
      *
      * @param state - The current state of the application.
      * @param action - The action containing the mobile resolution state payload.
@@ -83,10 +87,40 @@ const appSlice = createSlice({
     fromMobile(state, action: PayloadAction<boolean>) {
       state.mobileResolution = action.payload;
     },
+    /**
+     * Sets the mobile resolution state.
+     *
+     * @param state - The current state of the application.
+     * @param action - The action containing the chat mode state payload.
+     */
+    chatPreviewListOpen(state, action: PayloadAction<boolean>) {
+      state.chatPreviewListOpen = action.payload;
+    },
+    /**
+     * Sets the chat mode state.
+     * @param state - The current state of the application.
+     * @param action - The action containing the chat mode state payload.
+     */
+    liveChatOpen(state, action: PayloadAction<boolean>) {
+      state.liveChat = action.payload;
+    },
+    /**
+     * Sets the chat mode state.
+     * @param state - The current state of the application.
+     * @param action - The action containing the chat mode state payload.
+     */
   },
 });
 
-export const { setLoading, setError, clearError, toggleMenu, fromMobile, menubarOpen } =
-  appSlice.actions;
+export const {
+  setLoading,
+  setError,
+  clearError,
+  toggleMenu,
+  fromMobile,
+  menubarOpen,
+  chatPreviewListOpen,
+  liveChatOpen,
+} = appSlice.actions;
 
 export default appSlice.reducer;

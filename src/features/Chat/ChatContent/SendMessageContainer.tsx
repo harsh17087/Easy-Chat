@@ -1,7 +1,7 @@
 import { Box, IconButton, InputBase } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import MicIcon from '@mui/icons-material/Mic';
-import './SendMessageContainer.css';
+import './ChatContent.css';
 
 const SendMessageContainer = () => {
   return (
