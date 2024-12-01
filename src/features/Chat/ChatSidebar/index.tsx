@@ -40,9 +40,39 @@ const ChatSidebar = () => {
               },
             }}
           >
-            <Tab icon={<MailIcon />} iconPosition='start' label='All Messages' />
-            <Tab icon={<AndroidIcon />} iconPosition='start' label='Bots' />
-            <Tab icon={<PersonIcon />} iconPosition='start' label='Human' />
+            <Tab
+              icon={
+                <MailIcon
+                  sx={{
+                    color: 'rgb(143 138 237)',
+                  }}
+                />
+              }
+              iconPosition='start'
+              label='All Messages'
+            />
+            <Tab
+              icon={
+                <AndroidIcon
+                  sx={{
+                    color: '#f07131',
+                  }}
+                />
+              }
+              iconPosition='start'
+              label='Bots'
+            />
+            <Tab
+              icon={
+                <PersonIcon
+                  sx={{
+                    color: '#0086fa',
+                  }}
+                />
+              }
+              iconPosition='start'
+              label='Human'
+            />
           </MuiTabs>
         </div>
         <Box className='tabs-content'>

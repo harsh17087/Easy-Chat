@@ -1,10 +1,10 @@
-import React from 'react';
-import { Avatar, Box, Typography, useTheme } from '@mui/material';
 import BotIcon from '@mui/icons-material/Android';
 import HumanIcon from '@mui/icons-material/Person';
-import './ChatMessagesStyles.css';
+import { Avatar, Box, Typography } from '@mui/material';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { liveChatOpen } from '../../store/appSlice';
+import './ChatMessagesStyles.css';
 
 interface ChatMessagePreviewProps {
   image: string;
@@ -19,23 +19,27 @@ const ChatMessagePreview: React.FC<ChatMessagePreviewProps> = ({
   timestamp,
   isBot,
 }) => {
-  const theme = useTheme();
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(liveChatOpen(true));
   };
+
+  const hoverColor = isBot
+    ? 'rgba(240, 113, 49, 0.1)' // Less bright version of the bot icon color
+    : 'rgba(0, 134, 250, 0.1)'; // Less bright version of the human icon color
 
   return (
     <Box
       className='chat-message-preview'
       sx={{
         '&:hover': {
-          backgroundColor: theme.palette.mode === 'dark' ? '#333' : 'rgb(97 95 95 / 17%)',
+          backgroundColor: hoverColor,
         },
       }}
+      onClick={handleClick}
     >
       <Avatar src={image} alt='Profile Picture' className='chat-avatar' />
-      <Box className='chat-details' onClick={handleClick}>
+      <Box className='chat-details'>
         <Typography variant='body1' className='chat-last-message'>
           {lastMessage}
         </Typography>
@@ -44,7 +48,7 @@ const ChatMessagePreview: React.FC<ChatMessagePreviewProps> = ({
         </Typography>
       </Box>
       <Box className='chat-status'>
-        {isBot ? <BotIcon className='chat-icon' /> : <HumanIcon className='chat-icon' />}
+        {isBot ? <BotIcon className='chat-icon-bot' /> : <HumanIcon className='chat-icon-human' />}
       </Box>
     </Box>
   );
