@@ -42,7 +42,14 @@ const ChatTopSection = () => {
     <div className='chat-top-section'>
       {isSearch ? (
         <Box className='chat-top-left'>
-          <IconButton onClick={handleSearchClose}>
+          <IconButton
+            sx={{
+              '&:focus, &:focus-visible': {
+                outline: 'none',
+              },
+            }}
+            onClick={handleSearchClose}
+          >
             <ArrowBackIcon />
           </IconButton>
           <SearchBar />
@@ -51,7 +58,14 @@ const ChatTopSection = () => {
         <>
           <Box className='chat-top-left'>
             {app.mobileResolution && !isSearch && (
-              <IconButton onClick={closeLiveChat}>
+              <IconButton
+                sx={{
+                  '&:focus, &:focus-visible': {
+                    outline: 'none',
+                  },
+                }}
+                onClick={closeLiveChat}
+              >
                 <ArrowBackIcon />
               </IconButton>
             )}
